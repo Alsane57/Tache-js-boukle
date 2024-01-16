@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types de Boucles</title>
+</head>
+<body>
+
+    <label for="loopType">Type de Boucle :</label>
+    <input type="text" id="loopType" placeholder="for, while, do-while">
+    <button onclick="showLoopInfo()">Afficher la Définition</button>
+    <p id="loopDefinition"></p>
+
+    <script src="java/boukle.js"></script>
+    <script>
+        function showLoopInfo() {
+    var loopTypeInput = document.getElementById("loopType").value.toLowerCase();
+    var loopDefinition = "";
+
+    switch (loopTypeInput) {
+        case "for":
+            loopDefinition = "La boucle 'for' est utilisée pour répéter une séquence d'instructions un certain nombre de fois.";
+            break;
+        case "while":
+            loopDefinition = "La boucle 'while' est utilisée pour répéter une séquence d'instructions tant qu'une condition est vraie.";
+            break;
+        case "do-while":
+            loopDefinition = "La boucle 'do-while' est similaire à 'while', mais elle garantit que le bloc d'instructions est exécuté au moins une fois.";
+            break;
+        default:
+            loopDefinition = "Type de boucle non reconnu. Veuillez entrer 'for', 'while' ou 'do-while'.";
+    }
+
+    document.getElementById("loopDefinition").innerText = loopDefinition;
+}
+    </script>
+       <script >
+        // Demander à l'utilisateur de saisir un nombre
+        var nombre = prompt("Entrez un nombre entier pour afficher sa table de multiplication :");
+
+        // Vérifier si l'utilisateur a annulé la saisie ou a laissé le champ vide
+        if (nombre !== null && nombre !== "") {
+            // Convertir la saisie en nombre entier
+            nombre = parseInt(nombre);
+
+            // Vérifier si la conversion a réussi
+            if (!isNaN(nombre)) {
+                document.write("<h2>Table de Multiplication de " + nombre + "</h2>");
+                
+                // Boucle for pour afficher la table de multiplication
+                for (var i = 1; i <= 10; i++) {
+                    document.write(nombre + " x " + i + " = " + (nombre * i) + "<br>");
+                }
+            } else {
+                alert("Veuillez entrer un nombre entier valide.");
+            }
+        } else {
+            alert("Vous avez annulé la saisie ou laissé le champ vide.");
+        }
+    </script>
+
+</body>
+</html>
